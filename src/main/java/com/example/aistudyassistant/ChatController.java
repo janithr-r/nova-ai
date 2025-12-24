@@ -31,4 +31,10 @@ public class ChatController {
     public String chat(@RequestParam String message) {
         return aiService.getAnswer(message);
     }
+
+
+    @GetMapping("/")
+    public String home() {
+        return "<h1>Siripala AI is Online! 🚀</h1><p>Ready to study.</p>";
+    }
 }
