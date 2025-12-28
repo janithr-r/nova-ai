@@ -32,9 +32,10 @@ public class ChatController {
         return aiService.getAnswer(message);
     }
 
-
-    @GetMapping("/")
-    public String home() {
-        return "<h1>Siripala AI is Online! 🚀</h1><p>Ready to study.</p>";
+    // time eka
+    @GetMapping("/time")
+    public String checkTime() {
+        return "<h1>Server Time Check 🕒</h1>" +
+                "<p>Current Time: " + java.time.LocalDateTime.now() + "</p>";
     }
 }
