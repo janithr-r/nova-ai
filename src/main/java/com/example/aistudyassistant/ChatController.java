@@ -47,4 +47,22 @@ public class ChatController {
                 "<p><strong>Java Version:</strong> " + System.getProperty("java.version") + "</p>" +
                 "<p><strong>User:</strong> " + System.getProperty("user.name") + "</p>";
     }
+
+    // 5. Memory Usage check karana endpoint eka (DevOps Tool)
+    @GetMapping("/memory")
+    public String getMemoryStats() {
+        // Java Runtime eken memory wistara gannawa
+        Runtime runtime = Runtime.getRuntime();
+
+        // Bytes walin ena nisa MB walata harawamu (1024 * 1024)
+        long totalMemory = runtime.totalMemory() / (1024 * 1024);
+        long freeMemory = runtime.freeMemory() / (1024 * 1024);
+        long usedMemory = totalMemory - freeMemory;
+
+        return "<h2>Server RAM Usage 📊</h2>" +
+                "<p><strong>Total Allocated:</strong> " + totalMemory + " MB</p>" +
+                "<p><strong>Used Memory:</strong> " + usedMemory + " MB</p>" +
+                "<p><strong>Free Memory:</strong> " + freeMemory + " MB</p>";
+    }
+
 }
